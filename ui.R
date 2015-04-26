@@ -14,20 +14,22 @@
 # 		runApp("/path/to/folder")
 #
 
-pckg = c("mclust", "gridExtra") 
-is.installed <- function(mypkg){ is.element(mypkg, installed.packages()[,1]) } 
-for(i in 1:length(pckg)) { if (!is.installed(pckg[i])) { install.packages(pckg[i]) } }
+#pckg = c("mclust", "gridExtra") 
+#is.installed <- function(mypkg){ is.element(mypkg, installed.packages()[,1]) } 
+#for(i in 1:length(pckg)) { if (!is.installed(pckg[i])) { install.packages(pckg[i]) } }
 
 library(mclust)
 
 shinyUI(pageWithSidebar(
   headerPanel('Model Clustering on Iris dataset'),
   sidebarPanel(
+    h4("Select the variables on which to perform the clustering and the Clustering model"),
     selectInput('xcol', 'X Variable', names(iris), selected=names(iris)[[3]]),
     selectInput('ycol', 'Y Variable', names(iris), selected=names(iris)[[4]]),
     selectInput('model', 'Model', mclust.options("emModelNames"), selected="VEV")
   ),
   mainPanel(
-    plotOutput('plotClusters')
+      h4("For clustering options, see"), a(href="http://cran.r-project.org/web/packages/mclust/mclust.pdf", "http://cran.r-project.org/web/packages/mclust/mclust.pdf"),
+      plotOutput('plotClusters')
   )
 ))

@@ -14,9 +14,9 @@
 # 		runApp("/path/to/folder")
 #
 
-pckg = c("mclust", "gridExtra") 
-is.installed <- function(mypkg){ is.element(mypkg, installed.packages()[,1]) } 
-for(i in 1:length(pckg)) { if (!is.installed(pckg[i])) { install.packages(pckg[i]) } }
+#pckg = c("mclust", "gridExtra") 
+#is.installed <- function(mypkg){ is.element(mypkg, installed.packages()[,1]) } 
+#for(i in 1:length(pckg)) { if (!is.installed(pckg[i])) { install.packages(pckg[i]) } }
 
 library(mclust)
 
